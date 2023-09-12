@@ -2,8 +2,9 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Image } from 'expo-image';
-import Logo from "../../assets/logos/Logo.svg"
-import { SvgUri } from 'react-native-svg';
+
+import { SvgXml } from 'react-native-svg';
+import { xml } from '../../assets/contants';
 
 const MyComponent = () => {
     return (
@@ -12,13 +13,7 @@ const MyComponent = () => {
                 colors={['#fce2c4', 'rgb(192, 141, 230)',]}
                 style={styles.button}
             />
-
-            {/* <SvgUri
-                width={400}
-                height={400}
-                uri={Logo}
-            /> */}
-
+            {/* <SvgXml xml={xml} width="100%" height="100%" /> */}
         </View>
     );
 };
