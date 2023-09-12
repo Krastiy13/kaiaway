@@ -6,24 +6,33 @@ import { Entypo } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import Searchpage from '../../screens/Serach-page/Searchpage';
+import { View } from 'react-native';
 
 const BottomTab = createBottomTabNavigator();
 
 const BottomNav = () => (
     <BottomTab.Navigator
         screenOptions={{
-            tabBarOptions: {
-                tabStyle: {
-                    justifyContent: 'center',
-                },
-                showIcon: false
-            }
+            tabBarShowLabel: false,
+            headerShown: false,
+            tabBarStyle: {
+                position: "absolute",
+                bottom: 0,
+                left: 0,
+                right: 0,
+                elevation: 0,
+                height: 60,
+
+            },
         }}
     >
         {/* <BottomTab.Screen name="StackNav" component={StackNav} options={{ tabBarVisible: false }} /> */}
         < BottomTab.Screen name="Home stack" options={{
-            tabBarIcon: ({ color, size }) => (
-                <Entypo name="home" size={35} color="purple" />
+            // tabBarBadge: 3, para añadir notificaciones badges to icons
+            tabBarIcon: ({ focused }) => (
+                <View
+                    style={{ alignContent: "center", justifyContent: "center" }}><Entypo name="home" size={30} color={focused ? "green" : "purple"} /></View>
+
                 // Cambia "ios-home" al nombre del icono que desees utilizar de Ionicons
             ),
             headerShown: false,
@@ -33,21 +42,21 @@ const BottomNav = () => (
         <BottomTab.Screen name="Search page stack" options={{
 
             tabBarIcon: ({ color, size }) => (
-                <FontAwesome name="search" size={35} color="purple" />
+                <FontAwesome name="search" size={30} color="purple" />
                 // Cambia "ios-home" al nombre del icono que desees utilizar de Ionicons
             ),
             headerShown: false, tabBarLabel: "",
         }} component={SearchStack} />
         <BottomTab.Screen name="Profile page stack" options={{
             tabBarIcon: ({ color, size }) => (
-                <Ionicons name="person" size={35} color="purple" />
+                <Ionicons name="person" size={30} color="purple" />
                 // Cambia "ios-home" al nombre del icono que desees utilizar de Ionicons
             ),
-            headerShown: false, tabBarLabel: "",
-            tabBarStyle: {
-                backgroundColor: '', // Cambia el color de fondo de la barra de navegación inferior
-            },
+            headerShown: false,
+            tabBarLabel: "",
+
         }} component={ProfileStack} />
+
 
 
     </BottomTab.Navigator >
