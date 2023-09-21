@@ -1,15 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import CardHome from '../../components/CardHome'
 
-const Home = () => {
+const CardHome = () => {
     return (
         <View>
-            <CardHome />
+            <Text>CardHome</Text>
         </View>
     )
 }
 
-export default Home
+export default CardHome
 
 const styles = StyleSheet.create({})
